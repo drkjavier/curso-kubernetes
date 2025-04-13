@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        roles: postgres
+        role: postgres
     spec:
       containers:
         - name: postgres14
