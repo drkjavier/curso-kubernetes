@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "curso-kubernetes-bruno-collection",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
