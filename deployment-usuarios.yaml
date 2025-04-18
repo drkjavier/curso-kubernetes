@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: msvc-usuarios
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: msvc-usuarios
@@ -18,6 +18,14 @@ spec:
         ports:
         - containerPort: 8001
         env:
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: MY_POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
           - name: PORT
             valueFrom:
               configMapKeyRef:
@@ -48,3 +56,26 @@ spec:
               configMapKeyRef:
                 name: msvc-usuarios
                 key: curso_url
+#        readinessProbe:
+#          httpGet:
+#            path: /actuator/health/readiness
+#            port: 8001
+#            scheme: HTTP
+#          initialDelaySeconds: 5
+#          periodSeconds: 20
+#          timeoutSeconds: 10
+#        livenessProbe:
+#          httpGet:
+#            path: /actuator/health/liveness
+#            port: 8001
+#            scheme: HTTP
+#          initialDelaySeconds: 10
+#          periodSeconds: 30
+#          timeoutSeconds: 10
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "400m"
+          limits:
+            memory: "800Mi"
+            cpu: "500m"
