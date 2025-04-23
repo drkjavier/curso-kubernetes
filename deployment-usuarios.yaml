@@ -72,10 +72,10 @@ spec:
 #          initialDelaySeconds: 10
 #          periodSeconds: 30
 #          timeoutSeconds: 10
-        resources:
-          requests:
-            memory: "512Mi"
-            cpu: "400m"
-          limits:
-            memory: "800Mi"
-            cpu: "500m"
+#        resources:
+#          requests:
+#            memory: "512Mi"
+#            cpu: "900m"
+#          limits:
+#            memory: "800Mi"
+#            cpu: "1000m"

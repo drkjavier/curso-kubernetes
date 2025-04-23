@@ -1,0 +1,19 @@
+meta {
+  name: Create Usuario
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{gateway-host}}/api/usuarios
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Blanca",
+    "email": "blanca@email.com",
+    "password": "12345"
+  }
+}

@@ -4,9 +4,9 @@ metadata:
   name: msvc-usuarios
 spec:
   ports:
-    port: 8001
-    protocol: TCP
-    targetPort: 8001
+    - port: 8001
+      protocol: TCP
+      targetPort: 8001
   selector:
     app: msvc-usuarios
   type: LoadBalancer
