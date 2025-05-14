@@ -7,13 +7,17 @@ meta {
 post {
   url: {{usuarios-host}}
   body: json
-  auth: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
 }
 
 body:json {
   {
-    "nombre": "Blanca",
-    "email": "blanca@email.com",
+    "nombre": "Luci",
+    "email": "luci@email.com",
     "password": "12345"
   }
 }

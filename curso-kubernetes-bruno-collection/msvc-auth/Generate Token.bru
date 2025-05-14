@@ -1,0 +1,33 @@
+meta {
+  name: Generate Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://172.23.41.133:31418/oauth2/token
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: usuarios-client
+  password: 12345
+}
+
+body:form-urlencoded {
+  code: M9pu6fVPANTSR2ZlL_pCPo7tkhjiAH79lL68M3wwshyV6M0jZUtvNRSIC5UxtN08j0bdcA3LVOso0o-NBv1ogogkxb_muhG_U-BCToEqXYbOHE4gzeoR_LIjuAY0i4tI
+  grant_type: authorization_code
+  redirect_uri: http://172.23.41.133:31179/authorized
+}
+
+script:post-response {
+  // Post-script para guardar el token en variables de entorno
+  const response = res.body;
+  if (response && response.access_token) {
+      bru.setEnvVar('AUTH_TOKEN', `${response.access_token}`);
+      console.log('Token guardado en variable AUTH_TOKEN');
+  } else {
+      console.warn('No se encontró token en la respuesta');
+  }
+}

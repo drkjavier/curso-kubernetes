@@ -1,0 +1,15 @@
+meta {
+  name: Login Usuario
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{usuarios-host}}/login?email=luci@email.com
+  body: json
+  auth: none
+}
+
+query {
+  email: luci@email.com
+}

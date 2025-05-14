@@ -1,14 +1,11 @@
-
 package org.aguzman.springcloud.msvc.usuarios.models.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import java.io.Serializable;
+import javax.validation.constraints.*;
 
 @Entity
-@Table(name = "usuarios")
-public class Usuario implements Serializable {
+@Table(name="usuarios")
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +14,7 @@ public class Usuario implements Serializable {
     @NotBlank
     private String nombre;
 
-    @NotBlank
+    @NotEmpty
     @Email
     @Column(unique = true)
     private String email;
@@ -56,6 +53,4 @@ public class Usuario implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 }

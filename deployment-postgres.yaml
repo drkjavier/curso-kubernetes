@@ -24,7 +24,10 @@ spec:
                   name: msvc-cursos
                   key: password
             - name: POSTGRES_DB
-              value: msvc-cursos
+              valueFrom:
+                configMapKeyRef:
+                  name: msvc-cursos
+                  key: database
           volumeMounts:
             - name: data-postgres
               mountPath: /var/lib/postgresql/data

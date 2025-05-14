@@ -1,0 +1,23 @@
+meta {
+  name: Update User
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{usuarios-host}}\1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "nombre": "Luci 1",
+    "email": "luci@email.com",
+    "password": "12345"
+  }
+}

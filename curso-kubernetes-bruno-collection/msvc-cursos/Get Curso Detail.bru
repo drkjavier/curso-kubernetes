@@ -7,5 +7,9 @@ meta {
 get {
   url: {{cursos-host}}/3
   body: none
-  auth: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
 }

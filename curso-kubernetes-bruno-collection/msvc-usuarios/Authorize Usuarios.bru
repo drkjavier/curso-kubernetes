@@ -1,0 +1,18 @@
+meta {
+  name: Authorize Usuarios
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{oauth-host}}/oauth2/authorize?response_type=code&client_id=usuarios-client&scope=read write&redirect_uri={{usuarios-host}}/authorized
+  body: none
+  auth: none
+}
+
+query {
+  response_type: code
+  client_id: usuarios-client
+  scope: read write
+  redirect_uri: {{usuarios-host}}/authorized
+}
